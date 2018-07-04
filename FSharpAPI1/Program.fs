@@ -1,7 +1,23 @@
-﻿// Learn more about F# at http://fsharp.org
-// See the 'F# Tutorial' project for more help.
+﻿open Hopac
+open HttpFs.Client
+open FSharp.Data
 
-[<EntryPoint>]
-let main argv = 
-    printfn "%A" argv
-    0 // return an integer exit code
+let apiBaseUrl = "https://www.alphavantage.com/query?"
+
+let body =
+  Request.createUrl Get "http://gmiprime.com"
+  |> Request.responseAsString
+  |> run
+
+printfn "Here's the body: %s" body
+System.Console.ReadLine() |> ignore
+
+let result = Http.RequestString("http://www.google.com")
+System.Console.Write(result)
+System.Console.ReadLine() |> ignore
+
+
+
+
+
+
