@@ -11,8 +11,8 @@
 //  |> Request.responseAsString
 //  |> run
 
-//printfn "Here's the body: %s" body
-//System.Console.ReadLine() |> ignore
+printfn "Here's the body: %s" "heelo"// body
+System.Console.ReadLine() |> ignore
 
 //let result = Http.RequestString("http://www.google.com")
 //System.Console.Write(result)

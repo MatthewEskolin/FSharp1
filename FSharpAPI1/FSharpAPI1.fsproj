@@ -59,6 +59,7 @@
     <None Include="App.config" />
     <Content Include="packages.config" />
     <None Include="FSharp_CookBook.fsx" />
+    <None Include="GetProgrammingWithFSharp.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Core">
