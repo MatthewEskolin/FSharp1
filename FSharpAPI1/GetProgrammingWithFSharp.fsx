@@ -94,3 +94,17 @@ let unit1 = ()
 // val createList : first:'a * second:'a -> List<'a>
 "Test".GetHashCode
 System.Console.WriteLine("test")
+
+
+
+let parseName(name:string) = 
+    let parts = name.Split(' ')
+    let forename =   parts.[0]
+    let surname  = parts.[1]
+    forename, surname
+
+let name = parseName("James X")
+let forename, surname = name
+let fname, sname = parseName("John Y")
+
+name

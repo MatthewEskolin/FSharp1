@@ -62,6 +62,7 @@
     <None Include="GetProgrammingWithFSharp.fsx" />
     <None Include="Listing4_8_Creating_a_form_to_display_a_web_page.fsx" />
     <None Include="Book2.fsx" />
+    <None Include="NYT_lesson9_1.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Core">
