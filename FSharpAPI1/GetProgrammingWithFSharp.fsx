@@ -108,3 +108,4 @@ let forename, surname = name
 let fname, sname = parseName("John Y")
 
 name
+System.Environment.CurrentDirectory
