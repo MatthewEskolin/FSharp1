@@ -82,6 +82,8 @@ let createList<'a>(first:'a, second) =
 let myList = List()
 
 open System.Collections.Generic
+open System
+
 let createList(first, second) = 
     let output = List()
     output.Add(first)
@@ -108,3 +110,22 @@ let forename, surname = name
 let fname, sname = parseName("John Y")
 
 name
+
+
+
+//9.3.4
+let explicit : int * int = 10,6
+let implicit = 34,3
+
+let addNum args = 
+    let a,b = args
+    a + b
+
+addNum (3,4)
+
+open System
+Int32.TryParse("234x")
+
+//Chapter 10 - Records
+
+type Address = { Street : string; Town : string; City : string}
