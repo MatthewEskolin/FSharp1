@@ -1,0 +1,10 @@
+extensions: .cs 
+// Test Header 
+extensions: .fs .fsx
+// Test Header
+extensions: .vb
+'Sample license text.
+extensions:  .xml .config .xsd
+<!--
+Sample license text.
+-->

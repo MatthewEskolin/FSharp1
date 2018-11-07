@@ -1,4 +1,6 @@
-﻿namespace Domain
+﻿//Add To Source Control
+
+namespace Domain
 
 type Customer = 
     { FirstName : string
