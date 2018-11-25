@@ -6,11 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Domain.fs" />
+    <Compile Include="Operations.fs" />
+    <Compile Include="Auditing.fs" />
     <None Include="Capstone2_Scratchpad.fsx" />
     <Compile Include="Program.fs" />
   </ItemGroup>
-
-  <ItemGroup />
 
   <ItemGroup>
     <PackageReference Update="System.ValueTuple" Version="4.5.0" />
