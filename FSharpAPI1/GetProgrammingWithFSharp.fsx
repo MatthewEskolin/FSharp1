@@ -2,38 +2,8 @@
 open System.Collections.Generic
 
 
-let greetPerson name age height = sprintf "Hello, %s. You are %d years old %d" name age height
-greetPerson "Fred" 54 3
 
-let gretPerson = 5
-gretPerson
-
-
-
-
-let TestShadowing() =
-   let a = 1
-   let a = 2
-   a
-
-
-
-let TestShadowing2() =
-   let a = 1
-   printfn "a: %i" a
-   if true then
-      let a = 2
-      printfn "a: %i" a
-   printfn "a: %i" a
-
-
-
-//Function countwords returns: the number of words in a string
-let countWords (text:string) =
-    let count = text.Split(' ').Length
-    let result = text + " " + count.ToString()
-    File.WriteAllText("c:/temp/output.txt",result)
-    1
+1
    
    
 //Page 50
@@ -60,14 +30,6 @@ let estimageAges(familyName, year1, year2, year3) =
 estimageAges("Eskolin", 1960, 1960, 1987)
 
 
-
-//listing 5.5
-let add (a, b) = 
-    let answer = a + b 
-    answer |> ignore
-    answer
-
-add(4,3)
 
 
 //listing 5.9
