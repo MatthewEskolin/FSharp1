@@ -4,6 +4,16 @@
 
 module FSharp_Cookbook.Core 
 
+
+open System.IO
+open System.Collections.Generic
+
+
+
+open System.Collections.Generic
+open System
+
+
 //(1) String Functions
 
 
@@ -57,6 +67,10 @@ c
 
 
 
+// - explicity define tuple
+let explicit : int * int = 10,6
+let implicit = 34,3
+
 
 
 
@@ -66,4 +80,14 @@ open System.Net
 
 let webclient = new WebClient()
 let fsharpOrg = webclient.DownloadString(Uri "http://fsharp.org")
+
+//Type Inference Example
+let createList(first, second) = 
+    let output = List()
+    output.Add(first)
+    output.Add(second)
+    output
+
+
+
 
