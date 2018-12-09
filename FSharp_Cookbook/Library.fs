@@ -89,5 +89,48 @@ let createList(first, second) =
     output
 
 
+//Using seq.Example of Higher Order Function
+
+type Customer = { Age: int }
+let where filter customers = 
+    seq {
+            for customer in customers do
+                if filter customer then
+                    yield customer }
+ 
+
+let customers = [ { Age = 21}; {Age = 84 }; {Age = 23}]
+let isOver35 customer = customer.Age > 35
+
+let r1 = customers |> where isOver35
+let r2= customers |> where (fun customer -> customer.Age > 35)
 
 
+
+
+
+//The following 2 examples show how to chain LINQlike expression together to answer a specific question about the dataset.
+
+// Listing 15.1
+type FootballResult = { HomeTeam : string; AwayTeam : string; HomeGoals : int; AwayGoals : int }
+let create (ht, hg) (at, ag) = { HomeTeam = ht; AwayTeam = at; HomeGoals = hg; AwayGoals = ag }
+let results =
+    [ create ("Messiville", 1) ("Ronaldo City", 2)
+      create ("Ronaldo City", 1) ("Bale Town", 2) ]
+
+
+// Listing 15.4
+let isAwayWin result = result.AwayGoals > result.HomeGoals
+
+results
+|> List.filter isAwayWin
+|> List.countBy(fun result -> result.AwayTeam)
+|> List.sortByDescending(fun (_, awayWins) -> awayWins)
+
+
+
+//Create an Array
+let numbersArray = [|4; 4; 3; 4; 3; 4;|]
+    //access an array
+let num = numbersArray.[3]
+let pickIndexes = numbersArray.[1..232]
