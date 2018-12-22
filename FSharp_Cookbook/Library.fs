@@ -34,7 +34,10 @@ let countWords (text:string) =
 
 
 
-//(2) Misc. Features
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//(2) Misc. Features 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 //Curried Function Example
 let curriedAdd a b = a + b           //notice how only one argument is defined for curriedAdd - a new function "addFive" is created with the signature ( int -> int) 
@@ -76,8 +79,6 @@ let implicit = 34,3
 
 
 //Web Download Example
-
-
 let webclient = new WebClient()
 let fsharpOrg = webclient.DownloadString(Uri "http://fsharp.org")
 
@@ -89,10 +90,17 @@ let createList(first, second) =
     output
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//(3) Working with Collections - LINQ the F# Way
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////n
 
-//WORKING WITH LINQ-LIKE Collection Functions
 
-//Using seq.Example of Higher Order Function
+
+//
+//(3.1) Selecting and Filtering
+//
+
+
 
 type Customer = { Age: int }
 let where filter customers = 
@@ -109,9 +117,6 @@ let r1 = customers |> where isOver35
 let r2= customers |> where (fun customer -> customer.Age > 35)
 
 
-
-
-
 //The following 2 examples show how to chain LINQlike expression together to answer a specific question about the dataset.
 
 // Listing 15.1
@@ -124,9 +129,7 @@ let results =
 
 // Listing 15.4
 let isAwayWin result = result.AwayGoals > result.HomeGoals
-
 let finalResults = results |> List.filter isAwayWin |> List.countBy(fun result -> result.AwayTeam) |> List.sortByDescending(fun (_, awayWins) -> awayWins)
-
 
 
 //Create an Array
@@ -139,6 +142,7 @@ let pickIndexes = numbersArray.[1..4]
 numbersArray.[4] <- 4
 
 
+//SELECT MANY example
 //Many to Many relationships --- use collect to take a many to many reslationshp and flatten it into a single list of every item..
 //> below is a useful reference for how to create list types...
 type Order = { OrderId : int }
@@ -152,3 +156,9 @@ open System
 open System.Data
 [ DateTime(2010,5,1); DateTime(2010,6,1); DateTime(2010,6,12); DateTime(2010,7,3) ] |> List.pairwise |> List.map(fun (a, b) -> b - a) |> List.map(fun x -> x.TotalDays)
 
+
+
+
+//
+//(3.2) Grouping
+//
