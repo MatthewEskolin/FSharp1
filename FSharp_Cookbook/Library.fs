@@ -7,14 +7,15 @@ module FSharp_Cookbook.Core
 
 open System.IO
 open System.Collections.Generic
-
-
-
 open System.Collections.Generic
 open System
+open System
+open System.Net
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //(1) String Functions
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 //printfn
@@ -75,8 +76,7 @@ let implicit = 34,3
 
 
 //Web Download Example
-open System
-open System.Net
+
 
 let webclient = new WebClient()
 let fsharpOrg = webclient.DownloadString(Uri "http://fsharp.org")
@@ -88,6 +88,9 @@ let createList(first, second) =
     output.Add(second)
     output
 
+
+
+//WORKING WITH LINQ-LIKE Collection Functions
 
 //Using seq.Example of Higher Order Function
 
@@ -122,10 +125,7 @@ let results =
 // Listing 15.4
 let isAwayWin result = result.AwayGoals > result.HomeGoals
 
-results
-|> List.filter isAwayWin
-|> List.countBy(fun result -> result.AwayTeam)
-|> List.sortByDescending(fun (_, awayWins) -> awayWins)
+let finalResults = results |> List.filter isAwayWin |> List.countBy(fun result -> result.AwayTeam) |> List.sortByDescending(fun (_, awayWins) -> awayWins)
 
 
 
@@ -133,4 +133,22 @@ results
 let numbersArray = [|4; 4; 3; 4; 3; 4;|]
     //access an array
 let num = numbersArray.[3]
-let pickIndexes = numbersArray.[1..232]
+    //pick a slice
+let pickIndexes = numbersArray.[1..4]
+    //mutate a value
+numbersArray.[4] <- 4
+
+
+//Many to Many relationships --- use collect to take a many to many reslationshp and flatten it into a single list of every item..
+//> below is a useful reference for how to create list types...
+type Order = { OrderId : int }
+type Customer2 = {CustomerId : int; Orders: Order list; Town :string}
+let customers2 : Customer2 list = []
+let orders : Order list = customers2 |> List.collect(fun c -> c.Orders)
+
+
+//Using Pairwise to work with relationshpis between adjacent items in the list... Consider researching windowed for doing this with more than 2 items
+open System
+open System.Data
+[ DateTime(2010,5,1); DateTime(2010,6,1); DateTime(2010,6,12); DateTime(2010,7,3) ] |> List.pairwise |> List.map(fun (a, b) -> b - a) |> List.map(fun x -> x.TotalDays)
+
