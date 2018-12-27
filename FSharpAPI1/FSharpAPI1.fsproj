@@ -59,6 +59,7 @@
     <None Include="App.config" />
     <Content Include="packages.config" />
     <None Include="GetProgrammingWithFSharp.fsx" />
+    <None Include="RootHardDiskCreationTimes.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Core">

@@ -2,6 +2,10 @@
 //This project will contain the most important pieces of code aquired through my learning process, things that will best help me retain my knowledge.
 //This project should be a reference guide for how to do things in F#
 
+
+//module TESt
+//
+//
 module FSharp_Cookbook.Core 
 
 
@@ -18,21 +22,19 @@ open System.Net
 
 
 
-//printfn
-let hello name = printfn "Hello %s" name //creats a function that when called prints to the console
+    //printfn
+    let hello name = printfn "Hello %s" name //creats a function that when called prints to the console
 
-//sprintf
-let greetPerson name age height = sprintf "Hello, %s. You are %d years old %d" name age height
-let string = greetPerson "Fred" 54 3
-
-
-//count number of words in a string
-let countWords (text:string) =
-    let count = text.Split(' ').Length
-    let result = text + " " + count.ToString()
-    System.IO.File.WriteAllText("c:/temp/output.txt",result)
+    //sprintf
+    let greetPerson name age height = sprintf "Hello, %s. You are %d years old %d" name age height
+    let string = greetPerson "Fred" 54 3
 
 
+    //count number of words in a string
+    let countWords (text:string) =
+        let count = text.Split(' ').Length
+        let result = text + " " + count.ToString()
+        System.IO.File.WriteAllText("c:/temp/output.txt",result)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //(2) Misc. Features 
@@ -162,3 +164,27 @@ open System.Data
 //
 //(3.2) Grouping
 //
+type Cordinate = {X :int; Y: int}
+let cordinatesXY = [{X = 5; Y = 6};
+                    {X = 5; Y = 2};
+                    {X = 5; Y = 3};
+                    {X = 5; Y = 3}; ]
+
+//groupBy, countBy, and partiion operation
+let groupbyY = cordinatesXY |> List.groupBy(fun cord -> cord.X)
+let groupbyX = cordinatesXY |> List.groupBy(fun cord -> cord.Y)
+
+let countByY = cordinatesXY |> List.countBy(fun cord -> cord.Y)
+let countByX = cordinatesXY |> List.countBy(fun cord -> cord.X)
+
+let partitionY = cordinatesXY |> List.partition(fun cord -> cord.Y > 3 )
+let partitionX = cordinatesXY |> List.partition(fun cord -> cord.Y = 2)
+
+
+let result = ([{X = 5; Y = 6;}; {X = 5; Y = 2;}; {X = 5; Y = 3;}; {X = 5; Y = 3;}], [])
+
+
+
+let inventory = ["Apples",0.33; "Oranges", 0.23; "Bananas", 0.45] |> Map.ofList
+let cheapFruit, expensiveFruit = inventory |> Map.partition(fun fruit cost -> cost < 0.3)
+
