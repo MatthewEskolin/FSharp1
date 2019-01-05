@@ -8,3 +8,4 @@ let directoryAges = directoryMap |> Map.map(fun x  y -> (DateTime.Now - director
 
 
 
+//Using Fold T

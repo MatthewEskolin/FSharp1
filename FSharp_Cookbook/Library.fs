@@ -188,3 +188,39 @@ let result = ([{X = 5; Y = 6;}; {X = 5; Y = 2;}; {X = 5; Y = 3;}; {X = 5; Y = 3;
 let inventory = ["Apples",0.33; "Oranges", 0.23; "Bananas", 0.45] |> Map.ofList
 let cheapFruit, expensiveFruit = inventory |> Map.partition(fun fruit cost -> cost < 0.3)
 
+
+
+
+
+
+////Using Fold To create custom aggregate functions
+let sum inputs = 
+    Seq.fold    
+        (fun state input ->
+            let newState = state + input
+            printfn "Current state is %d, input is %d, new state is %d" state input newState
+            newState)
+        0
+        inputs
+
+sum[1 .. 6]
+
+
+//Using Yield with Seq
+let lines : string seq = 
+    seq {
+    use sr = new StreamReader(File.OpenRead @"test_doc.txt")
+    while (not sr.EndOfStream) do
+        yield sr.ReadLine() }
+(0,lines) ||> Seq.fold(fun total line -> total + line.Length)
+
+
+lines 
+Environment.CurrentDirectory
+    
+    
+    }
+
+
+
+

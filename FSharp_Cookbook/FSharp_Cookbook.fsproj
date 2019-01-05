@@ -9,7 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Dynamic_Function_Examples.fsx" />
     <Compile Include="Library.fs" />
   </ItemGroup>
+
+  <ItemGroup />
 
 </Project>
