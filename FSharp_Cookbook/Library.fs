@@ -134,3 +134,22 @@ let numbersArray = [|4; 4; 3; 4; 3; 4;|]
     //access an array
 let num = numbersArray.[3]
 let pickIndexes = numbersArray.[1..232]
+
+
+//Mapping a Collection (list) inside a pipeline
+//notice how this reverses the order of the items in the tuples. this function could manipulate the items anyway it wants to.
+[ "Matthew", 34; "John", 33; "Tommy K", 42] |> List.map(fun (name, age) -> (age,name))
+
+[ "Matthew", 34; "John", 33; "Tommy K", 42] |> List.iter(fun (name, age) -> printfn "Hello, %s" name)
+
+
+//Something strange going on with the list keyword here
+type Order = { OrderId : int }
+type Customer1 = { CustomerId : int; Orders : Order list; Town : string }
+let customers1 : Customer1 list = []
+let orders : Order list = customers1 |> List.collect(fun c -> c.Orders)
+
+
+//Let's do the Try this on page 196 - this looks like a cool problem...
+//figuring how to use linq like function sin f#.
+

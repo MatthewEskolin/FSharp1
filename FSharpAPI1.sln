@@ -11,7 +11,9 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "FSharp_Console_Sandbox2", "
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Capstone2", "Capstone2\Capstone2.fsproj", "{9C674C8E-F708-4844-A436-31F959E03206}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp_Cookbook", "FSharp_Cookbook\FSharp_Cookbook.fsproj", "{B9963B68-C24F-4A1B-999D-D54214329706}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "FSharp_Cookbook", "FSharp_Cookbook\FSharp_Cookbook.fsproj", "{B9963B68-C24F-4A1B-999D-D54214329706}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Capstone3", "Capstone3\Capstone3.fsproj", "{5194054C-0572-4E34-9D53-9748B6641595}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{B9963B68-C24F-4A1B-999D-D54214329706}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9963B68-C24F-4A1B-999D-D54214329706}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9963B68-C24F-4A1B-999D-D54214329706}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5194054C-0572-4E34-9D53-9748B6641595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5194054C-0572-4E34-9D53-9748B6641595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5194054C-0572-4E34-9D53-9748B6641595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5194054C-0572-4E34-9D53-9748B6641595}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
