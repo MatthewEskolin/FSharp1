@@ -20,6 +20,11 @@ let consoleAudit account message =
 let auditAs (operationName:string) (audit:Account -> string -> unit) (operation:decimal -> Account -> Account) (amount:decimal) (account:Account) : Account = 
         //do operation
         let accountResult = operation amount account
+        let accountIsUnchanged = (accountResult = account)
+
+
+
+        
         let auditMessage  = sprintf "Performing an %s operation for $%M..." operationName amount
         audit account auditMessage |> ignore
         accountResult

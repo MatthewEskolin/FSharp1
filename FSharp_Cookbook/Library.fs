@@ -244,3 +244,16 @@ let orders : Order list = customers1 |> List.collect(fun c -> c.Orders)
 //Let's do the Try this on page 196 - this looks like a cool problem...
 //figuring how to use linq like function sin f#.
 
+////////////////////////////////
+///////Patern Matching//////////
+////////////////////////////////
+
+
+let getCredtLimit customer = 
+    match customer with
+    | "medium", 1 -> 500
+    | "good", years when years < 2 -> 750 + years
+    | "good", 2 -> 1000
+    | "good", _ -> 3000
+    | _ -> 234
+
