@@ -3,11 +3,7 @@
 //This project should be a reference guide for how to do things in F#
 
 
-//module TESt
-//
-//
 module FSharp_Cookbook.Core 
-
 
 open System.IO
 open System.Collections.Generic
@@ -256,4 +252,13 @@ let getCredtLimit customer =
     | "good", 2 -> 1000
     | "good", _ -> 3000
     | _ -> 234
+
+
+
+
+
+////////////////////////////////
+
+
+
 
