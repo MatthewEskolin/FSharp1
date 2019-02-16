@@ -1,3 +1,5 @@
+open System.Linq
+
 //I have been learning F# using the book "Get Programming with F# - A Guide for .NET developers" by Issac Abraham
 //This project will contain the most important pieces of code aquired through my learning process, things that will best help me retain my knowledge.
 //This project should be a reference guide for how to do things in F#
@@ -258,6 +260,12 @@ let getCredtLimit customer =
 
 
 ////////////////////////////////
+type customers = { Balance :int; Name:string}
+let handleCustomers customers = 
+    match customers with
+    | [] -> failiwth "No Customers Supplied!"
+    | [customer] -> printfn "Single customer, name is %s", customer.Name
+    | [first; second;] -> printfn "Two customers, balance = %d" (first.Balance + second.Balance)
 
 
 
