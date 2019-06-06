@@ -19,6 +19,16 @@ module UserInput =
         Console.Write "Enter Amount: "
         command, Console.ReadLine() |> Decimal.Parse
 
+    //save comments below -> alternative method to get amount that does not rely on User Input
+
+    //let getAmount (command:char) =
+    //    if command = 'd' then ('d',50M)
+    //    elif command = 'w' then ('w',25M)
+    //    elif command = 'x' then ('x',0M)
+    //    else ('E',0M) //error condition
+
+
+
 [<EntryPoint>]
 let main _ =
     //let name =
@@ -32,14 +42,6 @@ let main _ =
     
     let isValidCommand (command:char) =  if command = 'w' || command = 'd' || command = 'x' then true else false
     let isStopCommand (command:char) = if command = 'x' then true else false
-
-
-    //let getAmount (command:char) =
-    //    if command = 'd' then ('d',50M)
-    //    elif command = 'w' then ('w',25M)
-    //    elif command = 'x' then ('x',0M)
-    //    else ('E',0M) //error condition
-
 
     let processCommand (account:Account) (command:char,amount:decimal) = 
         printfn ""
